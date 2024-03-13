@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Q02 {
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Primeira nota: ");
+        double n1 = scanner.nextDouble();
+        System.out.println("Segunda nota: ");
+        double n2 = scanner.nextDouble();
+        System.out.println("Terceira nota: ");
+        double n3 = scanner.nextDouble();
+        System.out.println("Digite A para calcular media aritmetica ou P para ponderada: ");
+        char choice = scanner.next().charAt(0);
+        double m;
+        if (choice == 'A' || choice == 'a'){
+            m = aritmetica(n1, n2, n3);
+            System.out.printf("A media aritmetica é: " + m );
+        } else if(choice == 'P'|| choice == 'p'){
+            m = ponderada(n1, n2, n3);
+            System.out.printf("A media ponderada é: " + m );
+        }else{
+            System.out.println("Opcao invalida.");
+        }
+    }
+    
+    public static double aritmetica(double n1, double n2, double n3){
+        return (n1 + n2 + n3) / 3 ;
+    }
+    
+    public static double ponderada(double n1, double n2, double n3){
+        double p1 = 5;
+        double p2 = 3;
+        double p3 = 2;
+        return (p1 * n1 + p2 * n2 + p3 * n3) / (p1 + p2 + p3);
+    }
+}
+
